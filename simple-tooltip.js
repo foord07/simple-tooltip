@@ -1,4 +1,3 @@
-
 (function ($) {
     $.fn.tooltip = function(options){
 		var defaults = {
@@ -12,7 +11,7 @@
             arrowPosBottom: '-48px',
 			arrowClass : '.tip-arrow',
             tipClass : '.tooltip',
-			trigger: 'hover-click', // hover, hover-click, click, click-hover ,hover-risk profile
+			trigger: 'hover-click', // hover, hover-click, click, click-hover ,hover-risk
 			tipCloseClass: '.tipClose',
 			width: 'auto',
 			btnClose: false,
@@ -35,7 +34,7 @@
 			}
 		});
     };
-
+	//tooltip trigger
 	var bindEvents = function(tp, tr, opt){
 		if(opt.trigger == 'hover-risk-profile'){
            tr.bind({
@@ -74,7 +73,7 @@
             return;
         }
 	};
-	
+	//show tooltip
 	var showTooltip = function(tp, tr, opt){
         hideAllTooltip();
         $(opt.tipHTML).show();
@@ -91,11 +90,11 @@
 			tp.stop(true, true).delay(200).fadeIn();
 		}
 	};
-    
+    //hide tooltip
     var hideAllTooltip = function(){
         $('.tooltip').hide();
     }
-	
+	//setting up the css property for positioning the arrow of tooltip
 	var arrowPosition = function(tp, opt){
         var arr = tp.find(opt.arrowClass);
         if( opt.arrowPosition == 'bottom-left' ){
@@ -105,13 +104,13 @@
             arr.css({'right':opt.arrowPosRight, 'bottom':opt.arrowPosBottom});
         }
         if( opt.arrowPosition == 'bottom' ){
-            //arr.css({'left':opt.arrowPosLeft, 'bottom':opt.arrowPosBottom});
+            arr.css({'left':opt.arrowPosLeft, 'bottom':opt.arrowPosBottom});
         }
         if( opt.arrowPosition == 'top-left' ){
-            //arr.css({'left':opt.arrowPosLeft, 'top':opt.arrowPosTop});
+            arr.css({'left':opt.arrowPosLeft, 'top':opt.arrowPosTop});
         }
         if( opt.arrowPosition == 'top-right' ){
-            //arr.css({'left':opt.arrowPosLeft, 'top':opt.arrowPosTop});
+            arr.css({'left':opt.arrowPosLeft, 'top':opt.arrowPosTop});
         }
         if( opt.arrowPosition == 'top' ){
             var left = tp.width()/2 - arr.width()/2 + 10;
@@ -119,7 +118,7 @@
         }
         
 	};
-	
+	//tooltip positioning 
 	var tipPosition = function(tp, tr, opt){
 		var yPos = tr.offset().top;
 		var xPos = tr.offset().left;
